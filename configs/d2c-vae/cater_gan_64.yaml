@@ -29,7 +29,7 @@ model:
       timesformer_channels: 384
       splits: 1
       patch_size: 8
-      resolution: 256
+      resolution: 64
       z_channels: 64
       in_channels: 3
       out_ch: 64
@@ -41,13 +41,13 @@ model:
       - 8
       num_res_blocks: 2
       attn_resolutions: []
-      hdbf_resolutions: [128, 64]
-      inter_attn_resolutions: [32, 64, 128, 256]
+      hdbf_resolutions: [32] #[128, 64]
+      inter_attn_resolutions: [32] #[32, 64, 128, 256]
       dropout: 0.0
       attn_type: vanilla-multihead
 
     mlpconfig:
-      in_ch: 3
+      in_ch: 2
       out_ch: 3
       ch: 256
       latent_dim: 64
@@ -56,8 +56,8 @@ data:
   domain: video
   mode: train
   dataset: SKY
-  data_dir: /home/sudhir/Projects/Adobe/Datasets/SKY_timeplase/Data
-  save_pth: ./sky_save_path/
-  batch_size: 1
+  data_dir: /home/sudhir/Projects/Adobe/CATER/max2action/Data
+  save_pth: ./cater_gan_d2c_vae/
+  batch_size: 2
   test_batch_size: 4
   frames: 16

@@ -177,6 +177,7 @@ class ImageFolderDataset(Dataset):
             else:
                 split = 'test'
             path = os.path.join(path, split)
+            
             classes, class_to_idx = find_classes(path)
             if cond:
                 imgs = make_imagefolder_dataset(path, nframes // 2, class_to_idx, False, split)
